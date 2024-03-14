@@ -1,0 +1,30 @@
+def Map(val):
+  return (((val - 0) * (100 - 0)) / (255 - 0)) + 0
+go = True
+while(go == True):
+  hex = input("What hex code would you like to convert? ")
+  hex = hex.upper()
+  if(hex[0:1] == "#"):
+    hex = hex[1:]
+  help = "0123456789ABCDEF"
+  test = True
+  for i in hex:
+    if(help.find(i) == -1):
+      test = False
+  if(len(hex) == 6 and test == True):
+    R = (help.find(hex[0:1]) * 16) + help.find(hex[1:2])
+    G = (help.find(hex[2:3]) * 16) + help.find(hex[3:4])
+    B = (help.find(hex[4:5]) * 16) + help.find(hex[5])
+    rR = int(Map(R))
+    rG = int(Map(G))
+    rB = int(Map(B))
+    print("R Value: " + str(rR))
+    print("G Value: " + str(rG))
+    print("B Value: " + str(rB))
+  else:
+    print("Invalid hex code")
+  query = input("Convert another? (Y/N)")
+  if(query.lower() == "n"):
+    go = False
+  else:
+    print("\n-------------------\n")
